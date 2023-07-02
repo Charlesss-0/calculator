@@ -1,5 +1,4 @@
 const result = document.querySelector('#result')
-const defaultZero = document.querySelector('.default-zero')
 const oneEl = document.querySelector('.one')
 const twoEl = document.querySelector('.two')
 const threeEl = document.querySelector('.three')
@@ -10,60 +9,125 @@ const sevenEl = document.querySelector('.seven')
 const eightEl = document.querySelector('.eight')
 const nineEl = document.querySelector('.nine')
 const zeroEl = document.querySelector('.zero')
+const decimalEl = document.querySelector('.decimal-separator')
+const plusEl = document.querySelector('.plus')
+const subtractEl = document.querySelector('.subtract')
+const multiplyEl = document.querySelector('.multiply')
+const divisionEl = document.querySelector('.division')
+const allClear = document.querySelector('.all-clear')
+const equalSign = document.querySelector('.equals-sign')
 
-function printNum(el) {
-    defaultZero.classList.add('hidden')
-    result.innerHTML += `
-        <span class="number-values">
-            ${el}
-        </span>
-    `
+let enteredValues = []
+let clear = ''
+let incrementVal = 0
+function printEl(el) {
+    const defaultZero = document.querySelectorAll('.default-zero')
+    defaultZero.forEach((e) => {
+        e.textContent = clear
+    })
+
+    incrementVal = el
+    const element = document.createElement('span')
+    element.textContent = incrementVal
+    result.appendChild(element)
+    enteredValues.push(incrementVal)
+    console.log(enteredValues)
 }
 
-oneEl.addEventListener('click', () => {
-    printNum(1)
-})
-
-twoEl.addEventListener('click', () => {
-    printNum(2)
-})
-
-threeEl.addEventListener('click', () => {
-    printNum(3)
-})
-
-fourEl.addEventListener('click', () => {
-    printNum(4)
-})
-
-fiveEl.addEventListener('click', () => {
-    printNum(5)
-})
-
-sixEl.addEventListener('click', () => {
-    printNum(6)
-})
-
-sevenEl.addEventListener('click', () => {
-    printNum(7)
-})
-
-eightEl.addEventListener('click', () => {
-    printNum(8)
-})
-
-nineEl.addEventListener('click', () => {
-    printNum(9)
-})
-
-zeroEl.addEventListener('click', () => {
-    printNum(0)
-})
-
-const allClear = document.querySelector('.all-clear')
-
 function clearResult() {
-    result.innerHTML = ''
+    enteredValues = []
+    result.textContent = enteredValues
+    result.innerHTML = `
+        <span class="default-zero">
+            0
+        </span>
+    `
+    console.log(enteredValues)
 }
 
 allClear.addEventListener('click', clearResult)
+
+oneEl.addEventListener('click', () => {
+    printEl(1)
+})
+
+twoEl.addEventListener('click', () => {
+    printEl(2)
+})
+
+threeEl.addEventListener('click', () => {
+    printEl(3)
+})
+
+fourEl.addEventListener('click', () => {
+    printEl(4)
+})
+
+fiveEl.addEventListener('click', () => {
+    printEl(5)
+})
+
+sixEl.addEventListener('click', () => {
+    printEl(6)
+})
+
+sevenEl.addEventListener('click', () => {
+    printEl(7)
+})
+
+eightEl.addEventListener('click', () => {
+    printEl(8)
+})
+
+nineEl.addEventListener('click', () => {
+    printEl(9)
+})
+
+zeroEl.addEventListener('click', () => {
+    printEl(0)
+})
+
+decimalEl.addEventListener('click', () => {
+    printEl('.')
+})
+
+const operators = []
+let a = enteredValues
+let b = enteredValues
+let calcResult
+
+plusEl.addEventListener('click', () => {
+    operators.push('+')
+})
+
+subtractEl.addEventListener('click', () => {
+    operators.push('-')
+})
+
+multiplyEl.addEventListener('click', () => {
+    operators.push('*')
+})
+
+divisionEl.addEventListener('click', () => {
+    operators.push('/')
+})
+
+function performCalculation() {
+    if (operators == '+') {
+        calcResult = a + b
+
+    } else if (operators == '-') {
+        calcResult = a - b
+
+    } else if (operators == '*') {
+        calcResult = a * b
+
+    } else {
+        calcResult = a / b
+    }
+}
+
+equalSign.addEventListener('click', () => {
+    performCalculation()
+    console.log(calcResult)
+})

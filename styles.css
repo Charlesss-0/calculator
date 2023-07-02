@@ -4,8 +4,8 @@
 :root {
     --primary-color: #efefef;
     --secondary-color: #2f2f2f;
-    --default-color-one: #000;
-    --default-color-two: #fff;
+    --default-color-one: #000000;
+    --default-color-two: #ffffff;
     --primary-color-transparent: #efefefdd;
     --btn-color: #efefef;
     --calc-color: #e8e8e8;
@@ -40,13 +40,13 @@ body {
 .calc-section-container {
     width: min(500px, 100%);
     height: min(800px, 100%);
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
     background: var(--calc-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
-    outline: 15px outset #fff;
+    outline: 15px outset var(--default-color-two);
 }
 
 .calc-screen {
@@ -87,8 +87,7 @@ body {
     width: 20%;
     height: 15%;
     flex: 1 1 auto;
-    border-radius: 25px;
-    background: var(--btn-color);
+    border-radius: 3rem;
     margin: auto;
     background: linear-gradient(
         145deg,
