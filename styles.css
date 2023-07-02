@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Rubik&display=swap');
+
+:root {
+    --primary-color: #efefef;
+    --secondary-color: #2f2f2f;
+    --default-color-one: #000;
+    --default-color-two: #fff;
+    --primary-color-transparent: #efefefdd;
+    --btn-color: #efefef;
+    --calc-color: #e8e8e8;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    background: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+#main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CALCULATOR BODY SECTION START */
+
+.calc-section-container {
+    width: min(500px, 100%);
+    height: min(800px, 100%);
+    border-radius: 2rem;
+    background: var(--calc-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    outline: 15px outset #fff;
+}
+
+.calc-screen {
+    width: 95%;
+    height: 30%;
+    margin: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
+.calc-screen span {
+    font: 900 8rem Montserrat, sans-serif;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.calc-keyboard {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* CALCULATOR BODY SECTION END */
+
+/* CALCULATOR KEYBOARD SECTION START */
+
+.calc-buttons {
+    width: 20%;
+    height: 15%;
+    flex: 1 1 auto;
+    border-radius: 25px;
+    background: var(--btn-color);
+    margin: auto;
+    background: linear-gradient(
+        145deg,
+        #dadada,
+        #f0f0f0
+        );
+    box-shadow: 5px 5px 10px #bebebe,
+               -5px -5px 10px #ffffff;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    transition: transform .2s ease;
+}
+
+.calc-buttons:active {
+    transform: scale(.97);
+}
+
+.calc-buttons span {
+    font: 900 2rem Montserrat,sans-serif;
+}
+
+.zero {
+    width: 45%;
+    flex: 2 2 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 4.5rem;
+}
+
+/* CALCULATOR KEYBOARD SECTION END */
