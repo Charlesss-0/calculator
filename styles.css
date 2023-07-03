@@ -87,6 +87,7 @@ body {
     width: 20%;
     height: 15%;
     flex: 1 1 auto;
+    border: none;
     border-radius: 3rem;
     margin: auto;
     background: linear-gradient(
@@ -96,7 +97,6 @@ body {
         );
     box-shadow: 5px 5px 10px #bebebe,
                -5px -5px 10px #ffffff;
-    border: none;
     cursor: pointer;
     user-select: none;
     transition: transform .2s ease;

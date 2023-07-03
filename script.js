@@ -18,24 +18,22 @@ const allClear = document.querySelector('.all-clear')
 const equalSign = document.querySelector('.equals-sign')
 
 let enteredValues = []
-let clear = ''
-let incrementVal = 0
 function printEl(el) {
     const defaultZero = document.querySelectorAll('.default-zero')
     defaultZero.forEach((e) => {
-        e.textContent = clear
+        e.textContent = ''
     })
 
-    incrementVal = el
     const element = document.createElement('span')
-    element.textContent = incrementVal
+    element.textContent = el
     result.appendChild(element)
-    enteredValues.push(incrementVal)
+    enteredValues.push(el)
     console.log(enteredValues)
 }
 
 function clearResult() {
     enteredValues = []
+    operators = []
     result.textContent = enteredValues
     result.innerHTML = `
         <span class="default-zero">
@@ -91,10 +89,7 @@ decimalEl.addEventListener('click', () => {
     printEl('.')
 })
 
-const operators = []
-let a = enteredValues
-let b = enteredValues
-let calcResult
+let operators = []
 
 plusEl.addEventListener('click', () => {
     operators.push('+')
@@ -112,22 +107,31 @@ divisionEl.addEventListener('click', () => {
     operators.push('/')
 })
 
+let b = 4
+
 function performCalculation() {
+    result.textContent = ''
+    const currentValue = enteredValues.map(val => parseInt(val))
+    const calcResult = document.createElement('span')
     if (operators == '+') {
-        calcResult = a + b
+        calcResult.textContent = currentValue + b
+        result.appendChild(calcResult)
 
     } else if (operators == '-') {
-        calcResult = a - b
+        calcResult.textContent = currentValue - b
+        result.appendChild(calcResult)
 
     } else if (operators == '*') {
-        calcResult = a * b
+        calcResult.textContent = currentValue * b
+        result.appendChild(calcResult)
 
     } else {
-        calcResult = a / b
+        calcResult.textContent = currentValue / b
+        result.appendChild(calcResult)
+
     }
 }
 
 equalSign.addEventListener('click', () => {
     performCalculation()
-    console.log(calcResult)
 })
