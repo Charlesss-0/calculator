@@ -1,6 +1,5 @@
 const resultScreen = document.querySelector('#result')
 const btns = document.querySelectorAll('button')
-const rmvEl = document.querySelectorAll('.rmv')
 
 let calculation = []
 let accumulation
@@ -16,7 +15,7 @@ function printBtns(btn) {
         `
     } else if (value === '=') {
         resultScreen.innerHTML = `
-            <span class="rmv">
+            <span>
                 ${math.evaluate(accumulation)}
             </span>
         `
@@ -35,16 +34,21 @@ btns.forEach(btn => btn.addEventListener('click', () => printBtns(btn)))
 
 const plusEl = document.querySelector('.plus')
 const subtractEl = document.querySelector('.subtract')
-const multiplyEl = document.querySelector('multiply')
+const multiplyEl = document.querySelector('.multiply')
+const divisionEl = document.querySelector('.division')
+
+let operators = ['+', '-', '*', '/']
 
 function findValue() {
-    if ((resultScreen.innerText === '+') || (resultScreen.innerText === '-') || (resultScreen.innerText === '*') || (resultScreen.innerText === '/')) {
-        let printArr = []
-        let print = `Yeah, it has the value`
-        printArr.push(print)
-        console.log(printArr)
+    if ((operators.includes(resultScreen.innerText))) {
+        if (operators.includes(calculation.at(-1))) {
+            calculation.splice(-1)
+            console.log("operator already entered")
+        }
     }
 }
 
 plusEl.addEventListener('click', findValue)
 subtractEl.addEventListener('click', findValue)
+multiplyEl.addEventListener('click', findValue)
+divisionEl.addEventListener('click', findValue)
