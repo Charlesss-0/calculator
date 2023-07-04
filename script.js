@@ -41,9 +41,8 @@ let operators = ['+', '-', '*', '/']
 
 function findValue() {
     if ((operators.includes(resultScreen.innerText))) {
-        if (operators.includes(calculation.at(-1))) {
+        if (calculation.includes(operators -1)) {
             calculation.splice(-1)
-            console.log("operator already entered")
         }
     }
 }
